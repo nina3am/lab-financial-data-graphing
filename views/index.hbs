@@ -11,6 +11,11 @@
   <h1> {{title}} </h1>
   <p>Welcome to {{title}} </p>
 
+  <form>
+    From : <input type="date" name="fromDate" id="fromDate" onchange="handlerFrom(event)">
+    To : <input type="date" name="toDate" id="toDate" onchange="handlerTo(event)">
+  </form>
+
   <canvas id="my-chart" width= "600px"></canvas>
 </body>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>

@@ -1,5 +1,38 @@
+let fromSpecificDate = fromDate.value;
+let toSpecificDate = toDate.value;
 
-axios.get('http://api.coindesk.com/v1/bpi/historical/close.json').then(response => {
+function handlerFrom(e){
+    console.log(e.target.value)
+    fromSpecificDate = e.target.value
+
+    axios.get(`http://api.coindesk.com/v1/bpi/historical/close.json?start=${fromSpecificDate}&end=${toSpecificDate}`).then(response => {
+        console.log(response.data)
+        console.log('then')
+        printTheChart(response.data.bpi)
+        
+    }).catch(err => {
+        console.log('catch')
+        console.log('Erreur')
+    })
+}
+
+function handlerTo(e){
+    console.log(e.target.value)
+    toSpecificDate = e.target.value
+
+    axios.get(`http://api.coindesk.com/v1/bpi/historical/close.json?start=${fromSpecificDate}&end=${toSpecificDate}`).then(response => {
+        console.log(response.data)
+        console.log('then')
+        printTheChart(response.data.bpi)
+        
+    }).catch(err => {
+        console.log('catch')
+        console.log('Erreur')
+    })
+}
+
+
+axios.get(`http://api.coindesk.com/v1/bpi/historical/close.json`).then(response => {
     console.log(response.data)
     console.log('then')
     printTheChart(response.data.bpi)
